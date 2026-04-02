@@ -29,7 +29,7 @@ struct SlimyApp: App {
     }
 
     var body: some Scene {
-        MenuBarExtra("Slimy", systemImage: "sparkle", isInserted: $showMenuBarIcon) {
+        MenuBarExtra("Slimy", image: "SlimyMenuIcon", isInserted: $showMenuBarIcon) {
             Button("Settings") {
                 SettingsWindowController.shared.showWindow()
             }
