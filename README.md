@@ -1,99 +1,191 @@
-# Slimy
+<h1 align="center">
+  <br>
+  <a href="http://theboring.name"><img src="https://framerusercontent.com/images/RFK4vs0kn8pRMuOO58JeyoemXA.png?scale-down-to=256" alt="Slimy" width="150"></a>
+  <br>
+  Slimy
+  <br>
+</h1>
 
-macOS notch status viewer for delegated tasks. Lives in the MacBook notch, expands on hover to show time/weather/date and real-time subagent task progress.
 
-## Requirements
+<p align="center">
+  <a title="Crowdin" target="_blank" href="https://crowdin.com/project/slimy"><img src="https://badges.crowdin.net/slimy/localized.svg"></a>
+  <img src="https://github.com/Slimy/Slimy/actions/workflows/cicd.yml/badge.svg" alt="TheSlimy Build & Test" style="margin-right: 10px;" />
+  <a href="https://discord.gg/c8JXA7qrPm">
+    <img src="https://dcbadge.limes.pink/api/server/https://discord.gg/c8JXA7qrPm?style=flat" alt="Discord Badge" />
+  </a>
+  <a href="https://www.ko-fi.com/alexander5015">
+    <img src="https://srv-cdn.himpfen.io/badges/kofi/kofi-flat.svg" alt="Ko-Fi" />
+  </a>
+</p>
 
-- macOS 14+ (with notch for best experience, floating mode on other Macs)
-- Swift 6+ (Command Line Tools or Xcode)
-- Node.js 18+ (for test script only)
+<!--Welcome to **Slimy**, the coolest way to make your MacBook's notch the star of the show! Forget about those plain status bars—our notch turns into a dynamic music control center, complete with a snazzy visualizer and all the music controls you need. It's like having a mini concert right at the top of your screen! -->
 
-## Quick Start
+Say hello to **Slimy**, the coolest way to make your MacBook’s notch the star of the show! Say goodbye to plain status bars: with Slimy, your notch transforms into a dynamic music control center, complete with a vibrant visualizer and all the essential music controls you need. But that’s just the start! Slimy also offers calendar integration, a handy file shelf with AirDrop support, a complete MacOS HUD replacement and more!
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2d5f69c1-6e7b-4bc2-a6f1-bb9e27cf88a8" alt="Demo GIF" />
+</p>
+
+<!--https://github.com/user-attachments/assets/19b87973-4b3a-4853-b532-7e82d1d6b040-->
+---
+<!--## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Roadmap](#-roadmap)
+- [Building from Source](#building-from-source)
+- [Contributing](#-contributing)
+- [Join our Discord Server](#join-our-discord-server)
+- [Star History](#star-history)
+- [Buy us a coffee!](#buy-us-a-coffee)
+- [Acknowledgments](#-acknowledgments)-->
+
+## Installation
+
+**System Requirements:**
+- macOS **14 Sonoma** or later
+- Apple Silicon or Intel Mac
+
+---
+
+### Option 1: Download and Install Manually
+
+<a href="https://github.com/Slimy/Slimy/releases/latest/download/Slimy.dmg" target="_self"><img width="200" src="https://github.com/user-attachments/assets/e3179be1-8416-4b8a-b417-743e1ecc67d6" alt="Download for macOS" /></a>
+
+Once downloaded, open the `.dmg` and move **Slimy** to your `/Applications` folder.
+
+> [!IMPORTANT]
+> We don't have an Apple Developer account (yet 👀), so macOS will warn you that Slimy is from an unidentified developer on first launch. This is expected behavior.
+>
+> You'll need to bypass this before the app will open. You only need to do this once. Use one of the methods below.
+
+---
+
+#### Recommended: Terminal (Always Works)
+
+This is the fastest and simplest method. It requires just one command and works reliably for all users, unlike System Settings, which occasionally doesn't.
+
+After moving Slimy to your Applications folder, run:
 
 ```bash
-cd slimy
-
-# Build and run
-swift run Slimy
+xattr -dr com.apple.quarantine /Applications/Slimy.app
 ```
 
-The app hides in the notch with compact info (time + task count). Hover over the notch area to expand it.
+Then open the app normally.
 
-## Build Release
+---
+
+#### Alternative: System Settings
+
+> [!NOTE]
+> This method doesn't work for all users. If this doesn't work, use the Terminal method above.
+
+1. Try to open the app — you'll see a security warning.
+2. Click **OK** to dismiss it.
+3. Open **System Settings** > **Privacy & Security**.
+4. Scroll to the bottom and click **Open Anyway** next to the Slimy warning.
+5. Confirm if prompted.
+
+---
+
+### Option 2: Install via Homebrew
+
+You can also install using [Homebrew](https://brew.sh). The Homebrew installation automatically bypasses the macOS security warning described above.
 
 ```bash
-./build.sh
+brew install --cask Slimy/slimy/slimy
 ```
 
-Creates a release binary and `Slimy.app` bundle. Run with:
+## Usage
 
-```bash
-open Slimy.app
-# or
-.build/release/Slimy
-```
+- Launch the app, and voilà—your notch is now the coolest part of your screen.
+- Hover over the notch to see it expand and reveal all its secrets.
+- Use the controls to manage your music like a rockstar.
+- Click the star in your menu bar to customize your notch to your heart's content.
 
-## Test with Mock Events
+## 📋 Roadmap
+- [x] Playback live activity 🎧
+- [x] Calendar integration 📆
+- [x] Reminders integration ☑️
+- [x] Mirror 📷
+- [x] Charging indicator and current percentage 🔋
+- [x] Customizable gesture control 👆🏻
+- [x] Shelf functionality with AirDrop 📚
+- [x] Notch sizing customization, finetuning on different display sizes 🖥️
+- [x] System HUD replacements (volume, brightness, backlight) 🎚️💡⌨️
+- [ ] Bluetooth Live Activity (connect/disconnect for bluetooth devices) 
+- [ ] Weather integration ⛅️
+- [ ] Customizable Layout options 🛠️
+- [ ] Lock Screen Widgets 🔒
+- [ ] Extension system 🧩
+- [ ] Notifications (under consideration) 🔔
+<!-- - [ ] Clipboard history manager 📌 `Extension` -->
+<!-- - [ ] Download indicator of different browsers (Safari, Chromium browsers, Firefox) 🌍 `Extension`-->
+<!-- - [ ] Customizable function buttons 🎛️ -->
+<!-- - [ ] App switcher 🪄 -->
 
-The app launches with 3 hardcoded sample tasks for immediate UI testing. To simulate live events from the backend:
+<!-- ## 🧩 Extensions
+> [!NOTE]
+> We’re hard at work on some awesome extensions! Stay tuned, and we’ll keep you updated as soon as they’re released. -->
 
-```bash
-# In a second terminal
-cd slimy
-npm install ws
-node test.js
-```
+## Building from Source
 
-This sends a sequence of 3 parallel tasks (Gmail search, Notion page creation, Linear ticket update) that spawn, progress through tool calls, and complete over ~12 seconds.
+### Prerequisites
 
-## How It Works
+- **macOS 14 or later**: If you’re not on the latest macOS, we might need to send a search party.
+- **Xcode 16 or later**: This is where the magic happens, so make sure it’s up-to-date.
 
-### Notch Interaction
+### Installation
 
-- **Compact mode**: Time (left of notch) and task count (right of notch) shown as wings
-- **Hover**: Black pill expands down from notch revealing full panel with two columns:
-  - Left: current time, date, weather
-  - Right: active/completed task counts, "View all" button
-- **Click "View all"**: Animated transition to task list with status, tools, duration
-- **Click a task**: Detailed view with result/error/streaming text
-- **Mouse leaves**: 350ms grace period, then collapses back to compact
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Slimy/Slimy.git
+   cd Slimy
+   ```
 
-### WebSocket Server
+2. **Open the Project in Xcode**:
+   ```bash
+   open Slimy.xcodeproj
+   ```
 
-Runs on `ws://localhost:7778/ws`. Accepts JSON messages matching the backend's `subagent_event` format:
+3. **Build and Run**:
+    - Click the "Run" button or press `Cmd + R`. Watch the magic unfold!
 
-```json
-{
-  "type": "subagent_event",
-  "session_id": "abc-123",
-  "event_type": "status|progress|done",
-  "data": { ... }
-}
-```
+## 🤝 Contributing
 
-| event_type | Purpose | data fields |
-|-----------|---------|-------------|
-| `status` | Add/update task | `task`, `description`, `status`, `tool_calls_count` |
-| `progress` | Tool calls, tokens | `type` (tool_start/tool_result/token/thinking_complete), `tool_name`, `text` |
-| `done` | Task finished | `status`, `result`, `error` |
+We’re all about good vibes and awesome contributions! Read [CONTRIBUTING.md](CONTRIBUTING.md) to learn how you can join the fun!
 
-Also supports `task_summary` type for bulk sync.
+## Join our Discord Server
 
-## Architecture
+<a href="https://discord.gg/GvYcYpAKTu" target="_blank"><img src="https://iili.io/28m3GHv.png" alt="Join The Slimy Server!" style="height: 60px !important;width: 217px !important;" ></a>
 
-```
-Sources/
-├── SlimyApp.swift             # App entry, AppDelegate
-├── NotchWindow.swift           # NSPanel window controller, screen extensions
-├── NotchViewModel.swift       # State management, event processing, mock data
-├── Models.swift               # SubagentTask, TaskStatus, WeatherInfo
-├── WebSocketServer.swift      # Swifter WS server on :7778
-└── Views/
-    ├── NotchShellView.swift   # Root view: notch shape, hover, expand/collapse
-    ├── NotchContentView.swift # Content state machine + compact views
-    └── AgentChatView.swift    # Agent chat + draft cards
-```
+## Star History
 
-## Wiring to Desktop App (future)
+<a href="https://www.star-history.com/#Slimy/Slimy&Timeline">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Slimy/Slimy&type=Timeline&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Slimy/Slimy&type=Timeline" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Slimy/Slimy&type=Timeline" />
+ </picture>
+</a>
 
-Forward subagent events from the Electron app to the notch's WebSocket server. In `useChatServiceHandlers.ts`, when processing `subagent_event` messages, also send them to `ws://localhost:7778/ws`.
+## Support us on Ko-fi!
+<!-- <a href="https://www.buymeacoffee.com/jfxh67wvfxq" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a> -->
+<a href="https://www.ko-fi.com/alexander5015" target="_blank"><img src="https://github.com/user-attachments/assets//a76175ef-7e93-475a-8b67-4922ba5964c2" alt="Support us on Ko-fi" style="height: 70px !important;width: 346px !important;" ></a>
+
+## 🎉 Acknowledgments
+
+We would like to express our gratitude to the authors and maintainers of the open-source projects that made this possible. 
+
+## Notable Projects
+- **[MediaRemoteAdapter](https://github.com/ungive/mediaremote-adapter)** –  An open-source project that allowed us to use the Now Playing source in macOS 15.4+
+- **[NotchDrop](https://github.com/Lakr233/NotchDrop)** – An open-source project that has been instrumental in developing the first version of the "Shelf" feature in Slimy.
+
+For a full list of licenses and attributions, please see the [Third-Party Licenses](./THIRD_PARTY_LICENSES.md) file.
+
+### Icon credits: [@maxtron95](https://github.com/maxtron95)
+### Website credits: [@himanshhhhuv](https://github.com/himanshhhhuv)
+
+- **SwiftUI**: For making us look like coding wizards.
+- **You**: For being awesome and checking out **Slimy**!
+
+

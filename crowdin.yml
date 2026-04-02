@@ -1,0 +1,4 @@
+files:
+  - source: /Slimy/Localizable.xcstrings
+    translation: /Slimy/Localizable.xcstrings
+    multilingual: 1
